@@ -34,13 +34,18 @@ function compare(computerChoice, personChoice) {
 
 const computerHand = getComputerHand();
 // const playerHand = hands[parseInt(Math.random() * 10) % 3];
-const playerHand = prompt("Select 'rock', 'paper', or 'scissors'.");
-if (!hands.includes(playerHand)) {
-  alert("You entered an invalid response.");
-} else {
-  console.log(computerHand);
-  console.log(playerHand);
+let hasEnteredValidText = false;
+let playerHand;
 
-  const result = compare(computerHand, playerHand);
-  console.log(result);
+while (hasEnteredValidText === false) {
+  playerHand = prompt("Select 'rock', 'paper', or 'scissors'.");
+  if (!hands.includes(playerHand)) {
+    alert("You entered an invalid response.");
+  } else {
+    console.log(computerHand);
+    console.log(playerHand);
+    hasEnteredValidText = true;
+    const result = compare(computerHand, playerHand);
+    console.log(result);
+  }
 }
